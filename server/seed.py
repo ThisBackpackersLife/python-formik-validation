@@ -11,10 +11,13 @@ from models import db, Customer
 
 fake = Faker()
 
+print( "Creating usernames..." )
 usernames = [fake.first_name() for i in range(4)]
 if "Duane" not in usernames:
     usernames.append("Duane")
 
+
+print( "Creating customers..." )
 def make_customers():
 
     Customer.query.delete()
@@ -35,3 +38,5 @@ def make_customers():
 if __name__ == '__main__':
     with app.app_context():
         make_customers()
+
+print( "Database seeded successfully." )
